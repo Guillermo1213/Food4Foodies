@@ -39,7 +39,7 @@ export const RecipeListItem = props => (
         </Col>
         <Col size="xs-8 sm-9">
           <h3>{props.title}</h3>
-          <Link to={"/recipe/" + props.id}>Get Details!</Link>
+          <Link to={"/recipes/" + props.id}>Get Details!</Link>
         </Col>
       </Row>
     </Container>

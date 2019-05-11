@@ -9,7 +9,7 @@ const Jumbotron = () => (
       rel="noopener noreferrer"
       href="http://www.recipepuppy.com/about/api/"
     >
-      Powered by Recipe Puppy
+      Powered by Spoonacular
     </a>
   </div>
 );

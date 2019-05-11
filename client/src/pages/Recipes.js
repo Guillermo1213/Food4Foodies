@@ -33,6 +33,11 @@ export default class Recipes extends Component {
       .catch(err => console.log(err));
   };
 
+  likeRecipe = id => {
+    const searchResults = this.state.searchResults.results.filter(recipe => recipe.id !== id);
+    this.setState({ searchResults });
+  };
+
   render() {
     return (
       <div>
@@ -65,29 +70,32 @@ export default class Recipes extends Component {
               </form>
             </Col>
           </Row>
-          <Row>
-            <Col size="xs-12">
+          {/* <Row>
+            <Col size="xs-12"> */}
               {!this.state.searchResults.results ? (
                 <h1 className="text-center">No Recipes to Display</h1>
               ) : (
-                <RecipeList>
-                  {this.state.searchResults.results.map(recipe => {
-                    return (
-                      <RecipeListItem
-                        key={recipe.title}
-                        title={recipe.title}
-                        id={recipe.id}
-                        ingredients={recipe.ingredients}
-                        thumbnail={
-                          this.state.searchResults.baseUri + recipe.image
-                        }
-                      />
-                    );
-                  })}
-                </RecipeList>
+
+                    <RecipeList>
+                      {this.state.searchResults.results.map(recipe => {
+                        return (
+                          <RecipeListItem
+                            favorite={this.likeRecipe}
+                            key={recipe.title}
+                            title={recipe.title}
+                            id={recipe.id}
+                            ingredients={recipe.ingredients}
+                            thumbnail={
+                              this.state.searchResults.baseUri + recipe.image
+                            }
+                          />
+                        );
+                      })}
+                    </RecipeList>
+
               )}
-            </Col>
-          </Row>
+            {/* </Col>
+          </Row> */}
         </Container>
       </div>
     );

@@ -4,7 +4,7 @@ import "./Nav.css";
 const Nav = () => (
   <nav className="navbar navbar-dark bg-dark">
     <a className="navbar-brand" href="/">
-      React Recipes
+      Food4Foodies
     </a>
   </nav>
 );

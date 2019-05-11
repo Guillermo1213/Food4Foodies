@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "../components/Grid";
 import API from "../utils/API";
 import Thumbnail from "../components/Thumbnail";
+import { Link } from "react-router-dom";
 
 export default class RecipeByID extends Component {
   state = {
@@ -24,8 +25,9 @@ export default class RecipeByID extends Component {
     return (
       <li className="list-group-item">
         <div className="divStyle">
-          <Row>
+          <Row className="text-center">
             <Col size="md-12">{this.state.recipeDetails.title}</Col>
+            <Link to={"/"}>Recipes</Link>
           </Row>
           <Row>
             <Col size="xs-12 sm-4">

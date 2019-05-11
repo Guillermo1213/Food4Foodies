@@ -96,7 +96,7 @@ class App extends Component {
           component={Recipes}
         />
         <Route
-          exact path="/recipe:id"
+          exact path="/recipe/:id"
           component={RecipeByID}
         />
 
@@ -105,18 +105,5 @@ class App extends Component {
     );
   }
 }
-// function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <Nav />
-//         <Switch>
-//           <Route exact path="/" component={DetailRecipe} />
-//           <Route exact path="/recipe/:id" component={RecipeByID} />
-//         </Switch>
-//       </div>
-//     </Router>
-//   );
-// }
 
 export default App;

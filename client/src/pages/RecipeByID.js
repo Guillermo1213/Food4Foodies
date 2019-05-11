@@ -34,11 +34,15 @@ export default class RecipeByID extends Component {
               <Thumbnail src={this.state.recipeDetails.image} />
             </Col>
             <Col size="xs-12 sm-4">{this.state.recipeDetails.instructions}</Col>
-            <Col size="xs-12 sm-4">
-              {this.state.recipeDetails.extendedIngredients.map(recipe => (
-                <li>{recipe.name}</li>
-              ))}
-            </Col>
+            {!this.state.recipeDetails.extendedIngredients ? (
+                <div></div>
+              ) : (
+                <Col size="xs-12 sm-4">
+                  {this.state.recipeDetails.extendedIngredients.map(recipe => (
+                    <li>{recipe.name}</li>
+                  ))}
+                </Col> 
+              )}
           </Row>
         </div>
       </li>

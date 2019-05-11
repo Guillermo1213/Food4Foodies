@@ -6,7 +6,7 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
@@ -23,6 +23,19 @@
     "dotenv": "^8.0.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "unirest": "^0.6.0"
-  }
+    "unirest": "^0.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.14",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-mongo": "^2.0.1",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.2",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "proxy": "http://localhost:8080"
 }

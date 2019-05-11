@@ -1,8 +1,7 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const Planner = new Schema({
-
+const PlannerSchema = new Schema({
 		Monday: {
 			"Breakfast": { type: Object, unique: false, required: false },
 			"Lunch": {type: Object, unique: false, required: false },
@@ -41,4 +40,5 @@ const Planner = new Schema({
 
 })
 
-module.exports = Planner
+const Planner = mongoose.model("Planner", PlannerSchema);
+module.exports = Planner;

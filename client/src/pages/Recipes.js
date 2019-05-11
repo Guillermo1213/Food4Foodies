@@ -33,6 +33,13 @@ export default class Recipes extends Component {
       .catch(err => console.log(err));
   };
 
+  likeRecipe = id => {
+    const searchResults = this.state.searchResults.results.filter(
+      recipe => recipe.id !== id
+    );
+    this.setState({ searchResults });
+  };
+
   render() {
     return (
       <div>
@@ -74,6 +81,7 @@ export default class Recipes extends Component {
                   {this.state.searchResults.results.map(recipe => {
                     return (
                       <RecipeListItem
+                        favorite={this.likeRecipe}
                         key={recipe.title}
                         title={recipe.title}
                         id={recipe.id}

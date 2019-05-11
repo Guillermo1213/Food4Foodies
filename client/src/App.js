@@ -96,7 +96,7 @@ class App extends Component {
           component={Recipes}
         />
         <Route
-          exact path="/recipe/:id"
+          exact path="/recipes/:id"
           component={RecipeByID}
         />
 

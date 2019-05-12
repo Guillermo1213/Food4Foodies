@@ -3,6 +3,8 @@ import { Row, Col } from "../components/Grid";
 import API from "../utils/API";
 import Thumbnail from "../components/Thumbnail";
 import { Link } from "react-router-dom";
+import axios from 'axios'
+
 
 export default class RecipeByID extends Component {
   state = {
@@ -19,6 +21,27 @@ export default class RecipeByID extends Component {
       })
       .catch(err => console.log(err));
   }
+
+  handleSubmit(event) {
+		console.log('Add meal')
+		event.preventDefault()
+
+		//request to server to add groceries
+		axios.post('/groceries/add', {
+			groceries: 'milk'
+      
+		})
+			.then(response => {
+				console.log(response)
+				if (!response.data.errmsg) {
+					console.log('successful added')
+        } 
+      	}).catch(error => {
+				console.log('adding error: ')
+				console.log(error)
+
+			})
+	}
 
   render() {
     console.log(this.state.recipeDetails);
@@ -45,6 +68,11 @@ export default class RecipeByID extends Component {
               )}
           </Row>
         </div>
+        <button
+						className="btn btn-primary col-1 col-mr-auto"
+						onClick={this.handleSubmit}
+						type="submit"
+					>Add Meal </button>
       </li>
     );
   }

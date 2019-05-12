@@ -9,6 +9,7 @@ const passport = require('./passport');
 const PORT = process.env.PORT || 8080;
 const app = express();
 const user = require('./routes/user')
+const groceries = require('./routes/groceries')
 const apiRoutes = require("./routes/apiRoutes");
 
 
@@ -46,6 +47,7 @@ if (process.env.NODE_ENV === "production") {
 // Use apiRoutes
 app.use("/api", apiRoutes);
 app.use('/user', user)
+app.use('/groceries', groceries)
 
 // // Send every request to the React app
 // // Define any API routes before this runs

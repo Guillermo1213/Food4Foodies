@@ -4,39 +4,39 @@ const Schema = mongoose.Schema
 const Planner = new Schema({
 
 		Monday: {
-			"Breakfast": { type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": { type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		},
 		Tuesday: {
-			"Breakfast": {type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": {type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		},
 		Wednesday: {
-			"Breakfast": {type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": {type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		},
 		Thursday: {
-			"Breakfast": {type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": {type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		},
 		Friday: {
-			"Breakfast": {type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": {type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		},
 		Saturday: {
-			"Breakfast": {type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": {type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		},
 		Sunday: {
-			"Breakfast": {type: Object, unique: true, required: false },
-			"Lunch": {type: Object, unique: true, required: false },
-			"Dinner": {type: Object, unique: true, required: false }
+			"Breakfast": {type: Object, unique: false, required: false },
+			"Lunch": {type: Object, unique: false, required: false },
+			"Dinner": {type: Object, unique: false, required: false }
 		}
 
 })

@@ -41,7 +41,21 @@ export default class RecipeByID extends Component {
 				console.log(error)
 
 			})
-	}
+  }
+  
+  // handleSubmit(event) {
+	// 	console.log('Add meal')
+	// 	event.preventDefault()
+
+  //   const JSX_MODAL = (
+  //     <div className="ui dimmer modals visible active">  
+  //       <div className="ui standard modal visible active">
+  //         THIS IS SOME TEXT IN THE MODAL // add some UI features here
+  //       </div>
+  //     </div>
+  //   );
+  // }
+  
 
   render() {
     console.log(this.state.recipeDetails);

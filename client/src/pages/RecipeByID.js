@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import { Row, Col } from "../components/Grid";
 import API from "../utils/API";
 import Thumbnail from "../components/Thumbnail";
+import Select from "../components/Select";
 import { Link } from "react-router-dom";
-import axios from 'axios'
-
+import axios from "axios";
 
 export default class RecipeByID extends Component {
   state = {
     recipeDetails: {
       extendedIngredients: []
-    }
+    },
+    day: "Monday",
+    mealSlot: "Breakfast"
   };
 
   componentDidMount() {
@@ -22,40 +24,45 @@ export default class RecipeByID extends Component {
       .catch(err => console.log(err));
   }
 
-  handleSubmit(event) {
-		console.log('Add meal')
-		event.preventDefault()
+  handleSelectChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-		//request to server to add groceries
-		axios.post('/groceries/add', {
-			groceries: 'milk'
-      
-		})
-			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
-					console.log('successful added')
-        } 
-      	}).catch(error => {
-				console.log('adding error: ')
-				console.log(error)
+  handleSubmit = event => {
+    console.log("Add meal");
+    event.preventDefault();
 
-			})
-  }
-  
+    //request to server to add groceries
+    axios
+      .post("/groceries/add", {
+        groceries: this.state.recipeDetails.extendedIngredients,
+        day: this.state.day,
+        meal: this.state.mealSlot
+      })
+      .then(response => {
+        console.log(response);
+        if (!response.data.errmsg) {
+          console.log("successful added");
+        }
+      })
+      .catch(error => {
+        console.log("adding error: ");
+        console.log(error);
+      });
+  };
+
   // handleSubmit(event) {
-	// 	console.log('Add meal')
-	// 	event.preventDefault()
+  // 	console.log('Add meal')
+  // 	event.preventDefault()
 
   //   const JSX_MODAL = (
-  //     <div className="ui dimmer modals visible active">  
+  //     <div className="ui dimmer modals visible active">
   //       <div className="ui standard modal visible active">
   //         THIS IS SOME TEXT IN THE MODAL // add some UI features here
   //       </div>
   //     </div>
   //   );
   // }
-  
 
   render() {
     console.log(this.state.recipeDetails);
@@ -72,21 +79,28 @@ export default class RecipeByID extends Component {
             </Col>
             <Col size="xs-12 sm-4">{this.state.recipeDetails.instructions}</Col>
             {!this.state.recipeDetails.extendedIngredients ? (
-                <div></div>
-              ) : (
-                <Col size="xs-12 sm-4">
-                  {this.state.recipeDetails.extendedIngredients.map(recipe => (
-                    <li>{recipe.name}</li>
-                  ))}
-                </Col> 
-              )}
+              <div />
+            ) : (
+              <Col size="xs-12 sm-4">
+                {this.state.recipeDetails.extendedIngredients.map(recipe => (
+                  <li>{recipe.name}</li>
+                ))}
+              </Col>
+            )}
           </Row>
         </div>
+        <Select
+          onSelectChange={this.handleSelectChange}
+          mealSlot={this.state.mealSlot}
+          day={this.state.day}
+        />
         <button
-						className="btn btn-primary col-1 col-mr-auto"
-						onClick={this.handleSubmit}
-						type="submit"
-					>Add Meal </button>
+          className="btn btn-primary col-1 col-mr-auto"
+          onClick={this.handleSubmit}
+          type="submit"
+        >
+          Add Meal{" "}
+        </button>
       </li>
     );
   }

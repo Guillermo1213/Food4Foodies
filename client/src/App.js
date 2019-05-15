@@ -1,21 +1,22 @@
+// import React, { Component } from "react";
+// import axios from "axios";
+// import Nav from "./components/Nav";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import RecipeByID from "./pages/RecipeByID";
+// import Recipes from "./pages/Recipes";
+
+// function App() {
+//   return (
+//     <Router>
+//       <div>
+//         <Nav />
+//         <Switch>
+//           <Route exact path="/" component={Recipes} />
+//           <Route exact path="/recipe/:id" component={RecipeByID} />
+//         </Switch>
+// =======
 import React, { Component } from "react";
 import axios from "axios";
-import Nav from "./components/Nav";
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RecipeByID from "./pages/RecipeByID";
-import Recipes from "./pages/Recipes";
-
-function App() {
-  return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Recipes} />
-          <Route exact path="/recipe/:id" component={RecipeByID} />
-        </Switch>
-=======
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import RecipeByID from "./pages/RecipeByID";
 import Signup from "./components/Sign-up/sign-up";
@@ -80,14 +81,9 @@ class App extends Component {
           path="/login"
           render={() => <LoginForm updateUser={this.updateUser} />}
         />
-<<<<<<< HEAD
-
->>>>>>> Login funcionality is now working.
-=======
         <Route path="/signup" render={() => <Signup />} />
         <Route exact path="/recipesearch" component={Recipes} />
         <Route exact path="/recipes/:id" component={RecipeByID} />
->>>>>>> created form to add meal button
       </div>
     );
   }

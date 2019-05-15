@@ -34,7 +34,7 @@ export default class RecipeByID extends Component {
 
     //request to server to add groceries
     axios
-      .post("/groceries/add", {
+      .put("/groceries/addMeal", {
         groceries: this.state.recipeDetails.extendedIngredients,
         day: this.state.day,
         meal: this.state.mealSlot

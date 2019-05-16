@@ -6,7 +6,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+// import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const styles = {
   root: {
@@ -32,12 +33,20 @@ function ButtonAppBar(props) {
             color="inherit"
             aria-label="Menu"
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
+            Food4Foodies
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" component={Link} to="/recipesearch">
+            Recipes
+          </Button>
+          <Button color="inherit" component={Link} to="/recipesearch">
+            Favorites
+          </Button>
+          <Button color="inherit" component={Link} to="/recipesearch">
+            Groceries
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

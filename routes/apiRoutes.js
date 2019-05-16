@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const unirest = require("unirest");
 const axios = require("axios");
 const router = require("express").Router();
@@ -20,14 +20,8 @@ router.post("/recipes/search", (req, res) => {
     .query({
       query: req.query.recipe
     })
-    .header(
-      "X-RapidAPI-Host",
-      process.env.REACT_APP_GENERAL_RECIPE_HOST
-    )
-    .header(
-      "X-RapidAPI-Key",
-      process.env.REACT_APP_GENERAL_RECIPE_KEY
-    )
+    .header("X-RapidAPI-Host", process.env.REACT_APP_GENERAL_RECIPE_HOST)
+    .header("X-RapidAPI-Key", process.env.REACT_APP_GENERAL_RECIPE_KEY)
     .then(result => {
       res.json(result);
     })
@@ -36,19 +30,15 @@ router.post("/recipes/search", (req, res) => {
     });
 });
 
-router.post("/recipes/id", (req, res) => {
+router.post("/recipes/:id", (req, res) => {
   unirest
     .get(
-      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${req.query.id}/information`
+      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${
+        req.query.id
+      }/information`
     )
-    .header(
-      "X-RapidAPI-Host",
-      process.env.REACT_APP_DETAIL_RECIPE_HOST
-    )
-    .header(
-      "X-RapidAPI-Key",
-      process.env.REACT_APP_DETAIL_RECIPE_KEY
-    )
+    .header("X-RapidAPI-Host", process.env.REACT_APP_DETAIL_RECIPE_HOST)
+    .header("X-RapidAPI-Key", process.env.REACT_APP_DETAIL_RECIPE_KEY)
     .then(result => {
       res.json(result);
     })

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../database/models/user");
 
-router.put("/addMeal", function (req, res) {
+router.put("/addMeal", function(req, res) {
   console.log("routes/groceries.js, adding ");
 
   const { groceries, meal, day } = req.body;
@@ -18,6 +18,5 @@ router.put("/addMeal", function (req, res) {
     res.json(addedGroceries);
   });
 });
-
 
 module.exports = router;

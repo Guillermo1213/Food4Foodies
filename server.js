@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const user = require('./routes/user')
 const groceries = require('./routes/groceries')
+const favorites = require('./routes/favorites')
 const apiRoutes = require("./routes/apiRoutes");
 
 
@@ -48,6 +49,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", apiRoutes);
 app.use('/user', user)
 app.use('/groceries', groceries)
+app.use('/favorites', favorites)
 
 // // Send every request to the React app
 // // Define any API routes before this runs

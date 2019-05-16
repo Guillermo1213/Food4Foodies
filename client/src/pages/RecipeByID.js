@@ -28,7 +28,7 @@ export default class RecipeByID extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmitMeal = event => {
     console.log("Add meal");
     event.preventDefault();
 
@@ -50,6 +50,30 @@ export default class RecipeByID extends Component {
         console.log(error);
       });
   };
+
+  handleSubmitFavorite = event => {
+    console.log("Add meal");
+    event.preventDefault();
+
+    //request to server to add groceries
+    axios
+      .put("/favorites/add", {
+        imgURl: this.state.recipeDetails.image,
+        recipeTitle: this.state.recipeDetails.title,
+      })
+      .then(response => {
+        console.log(response);
+        if (!response.data.errmsg) {
+          console.log("successful added");
+        }
+      })
+      .catch(error => {
+        console.log("adding error: ");
+        console.log(error);
+      });
+  };
+
+
 
   render() {
     console.log(this.state.recipeDetails);
@@ -83,7 +107,14 @@ export default class RecipeByID extends Component {
         />
         <button
           className="btn btn-primary col-1 col-mr-auto"
-          onClick={this.handleSubmit}
+          onClick={this.handleSubmitMeal}
+          type="submit"
+        >
+          Add Meal{" "}
+        </button>
+        <button
+          className="btn btn-primary col-1 col-mr-auto"
+          onClick={this.handleSubmitFavorite}
           type="submit"
         >
           Add Meal{" "}

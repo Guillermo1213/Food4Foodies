@@ -10,7 +10,7 @@ router.put("/addMeal", function(req, res) {
   console.log(req.user._id);
   User.findByIdAndUpdate(
     { _id: req.user._id },
-    { groceries: groceries },
+    {$push: {groceries: groceries} },
     addedGroceries => {
       res.json(addedGroceries);
     }

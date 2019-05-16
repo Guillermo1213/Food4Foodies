@@ -15,7 +15,7 @@ router.put("/add", function(req, res) {
   console.log(req.user._id);
   User.findByIdAndUpdate(
     { _id: req.user._id },
-    { favorites: favoriteObject },
+    {$push: {favorites: favoriteObject} },
     addedFavorite => {
       res.json(addedFavorite);
     }

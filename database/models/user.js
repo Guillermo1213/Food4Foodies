@@ -1,21 +1,92 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Planner = require("./planner");
+// const PlannerSchema = require("./planner");
 const bcrypt = require("bcryptjs");
 mongoose.promise = Promise;
 
 // Define userSchema
-const userSchema = new Schema({
+const userSchema = Schema({
   username: { type: String, unique: false, lowercase: true, required: false },
   email: { type: String, unique: false, lowercase: true, required: false },
   password: { type: String, unique: false, required: false },
   favorites: [],
-  planner: {
-    type: Schema.Types.ObjectId,
-    ref: "Planner"
-  },
+  planner: [{
+    Monday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    },
+    Tuesday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    },
+    Wednesday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    },
+    Thursday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    },
+    Friday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    },
+    Saturday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    },
+    Sunday: {
+      Breakfast: {},
+      Lunch: {},
+      Dinner: {}
+    }
+  }],
   groceries: []
 });
+
+// const plannerSchema = Schema({
+//   Monday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   },
+//   Tuesday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   },
+//   Wednesday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   },
+//   Thursday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   },
+//   Friday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   },
+//   Saturday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   },
+//   Sunday: {
+//     Breakfast: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Lunch: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false },
+//     Dinner: { type: Schema.Types.ObjectId, ref:'User', unique: false, required: false }
+//   }
+// });
 
 // Define schema methods
 userSchema.methods = {
@@ -40,5 +111,7 @@ userSchema.pre("save", function(next) {
   }
 });
 
+// const Planner = mongoose.model("Planner", plannerSchema);
 const User = mongoose.model("User", userSchema);
 module.exports = User;
+// module.exports = Planner;

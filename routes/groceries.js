@@ -7,7 +7,14 @@ router.put("/addMeal", function (req, res) {
 
   const { groceries, meal, day } = req.body;
   console.log(req.user._id);
-  User.findByIdAndUpdate({ _id: req.user._id }, { groceries: groceries }, (addedGroceries) => {
+  var dayOfWeek = day;
+
+  User.findByIdAndUpdate({ _id: req.user._id, planner: day, dayOfWeek: meal }, { $push: {} }, (addedMeal) => {
+    res.json(addedMeal);
+  });
+
+
+  User.findByIdAndUpdate({ _id: req.user._id }, { $push: { groceries: groceries } }, (addedGroceries) => {
     res.json(addedGroceries);
   });
 });

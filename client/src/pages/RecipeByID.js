@@ -1,14 +1,51 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "../components/Grid";
+import { Row, Col } from "../components/Grid";
 import Tabs from "../components/Tabs";
 import API from "../utils/API";
 import Thumbnail from "../components/Thumbnail";
 import Select from "../components/Select";
 import axios from "axios";
 import { Grid, Paper } from "@material-ui/core";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import InfoIcon from "@material-ui/icons/Info";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+require("../components/styles.css");
 
 const style = {
-  Paper: { padding: 20, marginTop: 10, marginBotton: 10 }
+  Paper: {
+    padding: 20,
+    marginTop: 10,
+    marginBotton: 10,
+    height: 500,
+    overflowY: "auto"
+  },
+  images: {
+    objectFit: "contain"
+  },
+  icon: {
+    color: "rgba(255, 255, 255, 0.54)",
+    margin: 40
+  },
+  iconHeart: {
+    color: "rgba(255, 255, 255, 0.54)",
+    margin: 20
+  },
+  root: {
+    width: "auto",
+    height: "auto",
+    maxWidth: 500
+  },
+  justify: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    overflow: "hidden"
+  }
 };
 
 export default class RecipeByID extends Component {
@@ -97,7 +134,7 @@ export default class RecipeByID extends Component {
     console.log(this.state.recipeDetails);
     return (
       <div>
-        <Row className="text-center">
+        {/* <Row className="text-center">
           <Col size="md-12">{this.state.recipeDetails.title}</Col>
         </Row>
         <Row>
@@ -114,33 +151,27 @@ export default class RecipeByID extends Component {
               ))}
             </Col>
           )}
-        </Row>
-        <div>
-          <Select
-            onSelectChange={this.handleSelectChange}
-            mealSlot={this.state.mealSlot}
-            day={this.state.day}
-          />
-          <button
-            className="btn btn-primary col-1 col-mr-auto"
-            onClick={this.handleSubmitMeal}
-            type="submit"
-          >
-            Add Meal{" "}
-          </button>
-          <button
-            className="btn btn-primary col-1 col-mr-auto"
-            onClick={this.handleSubmitFavorite}
-            type="submit"
-          >
-            Like{" "}
-          </button>
-        </div>
+        </Row> */}
         <div>
           <Grid container>
             <Grid item sm>
               <Paper style={style.Paper}>
-                <Thumbnail src={this.state.recipeDetails.image} />
+                <GridListTile>
+                  <Thumbnail
+                    style={style.images}
+                    src={this.state.recipeDetails.image}
+                  />
+                  <GridListTileBar
+                    // titlePosition="top"
+                    actionIcon={
+                      <IconButton style={style.icon}>
+                        <InfoIcon />
+                        {/* <FavoriteIcon /> */}
+                      </IconButton>
+                    }
+                    // actionPosition="left"
+                  />
+                </GridListTile>
               </Paper>
             </Grid>
             <Grid item sm>
@@ -148,24 +179,53 @@ export default class RecipeByID extends Component {
                 <div>
                   <h1>{this.state.recipeDetails.title}</h1>
                   <Tabs>
-                    <div label="Instructions">
+                    <div style={style.lineHeight} label="Instructions">
                       {this.state.recipeDetails.instructions}
                     </div>
-                    <div label="Ingredients">
+                    <ol label="Ingredients">
                       {this.state.recipeDetails.extendedIngredients.map(
                         recipe => (
-                          <li>{recipe.name}</li>
+                          <li style={style.inline}>{recipe.originalString}</li>
                         )
                       )}
-                    </div>
-                    <div label="Sarcosuchus">
-                      Nothing to see here, this tab is <em>extinct</em>!
+                    </ol>
+                    <div label="IngredientsDeux">
+                      {this.state.recipeDetails.extendedIngredients.map(
+                        recipe => (
+                          <List style={style.root}>
+                            <ListItem alignItems="flex-start">
+                              <ListItemText primary={recipe.originalString} />
+                            </ListItem>
+                          </List>
+                        )
+                      )}
                     </div>
                   </Tabs>
                 </div>
               </Paper>
             </Grid>
           </Grid>
+          <div style={style.justify}>
+            <Select
+              onSelectChange={this.handleSelectChange}
+              mealSlot={this.state.mealSlot}
+              day={this.state.day}
+            />
+            <button
+              className="btn btn-primary col-1 col-mr-auto"
+              onClick={this.handleSubmitMeal}
+              type="submit"
+            >
+              Add Meal{" "}
+            </button>
+            <button
+              className="btn btn-primary col-1 col-mr-auto"
+              onClick={this.handleSubmitFavorite}
+              type="submit"
+            >
+              Like{" "}
+            </button>
+          </div>
         </div>
       </div>
     );

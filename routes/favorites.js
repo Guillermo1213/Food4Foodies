@@ -5,9 +5,10 @@ const User = require("../database/models/user");
 router.put("/add", function(req, res) {
   console.log("favorites/favorites.js, adding ");
 
-  const { imgUrl, recipeTitle } = req.body;
+  const { imgUrl, recipeTitle, recipeId } = req.body;
 
   const favoriteObject = {
+      recipeId: recipeId,
       imgUrl: imgUrl,
       recipeTitle: recipeTitle
   }

@@ -44,7 +44,9 @@ export default class RecipeByID extends Component {
           recipe => recipe.name
         ),
         day: this.state.day,
-        meal: this.state.mealSlot
+        meal: this.state.mealSlot,
+        imgURl: this.state.recipeDetails.image,
+        recipeTitle: this.state.recipeDetails.title
       })
       .then(response => {
         console.log(response);
@@ -78,6 +80,7 @@ export default class RecipeByID extends Component {
     //request to server to add groceries
     axios
       .put("/favorites/add", {
+        recipeId: this.state.recipeDetails.id,
         imgURl: this.state.recipeDetails.image,
         recipeTitle: this.state.recipeDetails.title
       })

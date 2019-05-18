@@ -11,6 +11,7 @@ const app = express();
 const user = require('./routes/user')
 const groceries = require('./routes/groceries')
 const favorites = require('./routes/favorites')
+const planner = require('./routes/planner')
 const apiRoutes = require("./routes/apiRoutes");
 
 
@@ -46,16 +47,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Use apiRoutes
-app.use("/api", apiRoutes);
+app.use("/api", apiRoutes)
 app.use('/user', user)
 app.use('/groceries', groceries)
 app.use('/favorites', favorites)
+app.use('/planner', planner)
 
-// // Send every request to the React app
-// // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/navbar";
 import ButtonAppBar from "./components/Navbar/ButtonAppBar";
 import Home from "./components/Home/home";
 import Recipes from "./pages/Recipes";
+import Favorites from "./pages/favorites";
 
 class App extends Component {
   constructor() {
@@ -68,6 +69,7 @@ class App extends Component {
         <Route path="/signup" render={() => <Signup />} />
         <Route exact path="/recipesearch" component={Recipes} />
         <Route exact path="/recipes/:id" component={RecipeByID} />
+        <Route exact path="/favorites" component={Favorites} />
       </div>
     );
   }

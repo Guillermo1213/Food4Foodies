@@ -41,10 +41,10 @@ function ButtonAppBar(props) {
           <Button color="inherit" component={Link} to="/recipesearch">
             Recipes
           </Button>
-          <Button color="inherit" component={Link} to="/recipesearch">
+          <Button color="inherit" component={Link} to="/favorites">
             Favorites
           </Button>
-          <Button color="inherit" component={Link} to="/recipesearch">
+          <Button color="inherit" component={Link} to="/groceries">
             Groceries
           </Button>
         </Toolbar>

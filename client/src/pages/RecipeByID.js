@@ -53,8 +53,8 @@ export default class RecipeByID extends Component {
     recipeDetails: {
       extendedIngredients: []
     },
-    day: "Monday",
-    mealSlot: "Breakfast"
+    day: "",
+    mealSlot: ""
   };
 
   componentDidMount() {
@@ -78,11 +78,10 @@ export default class RecipeByID extends Component {
     axios
       .put("/groceries/addMeal", {
         groceries: this.state.recipeDetails.extendedIngredients.map(
-          recipe => recipe.name
-        ),
+          recipe => recipe.name),
         day: this.state.day,
         meal: this.state.mealSlot,
-        imgURl: this.state.recipeDetails.image,
+        imgUrl: this.state.recipeDetails.image,
         recipeTitle: this.state.recipeDetails.title
       })
       .then(response => {
@@ -118,7 +117,7 @@ export default class RecipeByID extends Component {
     axios
       .put("/favorites/add", {
         recipeId: this.state.recipeDetails.id,
-        imgURl: this.state.recipeDetails.image,
+        imgUrl: this.state.recipeDetails.image,
         recipeTitle: this.state.recipeDetails.title
       })
       .then(response => {

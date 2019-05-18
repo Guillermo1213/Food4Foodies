@@ -2,6 +2,8 @@ require("dotenv").config();
 const unirest = require("unirest");
 const axios = require("axios");
 const router = require("express").Router();
+const User = require("../database/models/user");
+
 
 // router.get("/recipes", (req, res) => {
 //   console.log("hell");
@@ -34,7 +36,7 @@ router.post("/recipes/:id", (req, res) => {
   unirest
     .get(
       `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${
-        req.query.id
+      req.query.id
       }/information`
     )
     .header("X-RapidAPI-Host", process.env.REACT_APP_DETAIL_RECIPE_HOST)
@@ -46,5 +48,16 @@ router.post("/recipes/:id", (req, res) => {
       res.status(422).json(err);
     });
 });
+
+// router.put("/favorites", (req, res) => {
+//   User.findById({ _id: req.user._id },
+//   favorites => {
+//     res.json(favorites);
+//   }).all()
+// });
+
+// router.put("/planner", (req, res) => {
+
+// });
 
 module.exports = router;

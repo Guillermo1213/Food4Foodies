@@ -16,6 +16,16 @@ export default {
       params: { id: query }
     });
   }
+  // ,
+
+  // fetchFavorites: function(){
+  //   return axios.put("/api/favorites");
+  // },
+
+  // fetchPlanner: function(){
+  //   return axios.put("/api/planner");
+  // }
+
 };
 
 // export default {

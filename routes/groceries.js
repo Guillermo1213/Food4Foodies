@@ -12,26 +12,17 @@ router.put("/addMeal", function (req, res) {
     mealType: meal,
     imgUrl: imgUrl,
     recipeTitle: recipeTitle
-  }
-
-  // User.findOneAndUpdate(
-  //   { $elemMatch: { _id: req.user._id }, planner: day },
-  //   { $push: { $in: [newMeal]} }
-  // );
+    }
 
     User.findByIdAndUpdate(
       { _id: req.user._id },
-      { $push: { groceries: groceries, planner: newMeal } }
-    );
+      { $push: { groceries: groceries, planner: newMeal } },
+      function (err, mealAdded) {
+        if (err) return res.json(err)
+        res.json(mealAdded)
+      });
   });
 
-  // User.findByIdAndUpdate(
-  //   { _id: req.user._id },
-  //   { $push: { groceries: groceries } },
-  //   addedMeal => {
-  //     res.json(addedMeal);
-  //   }
-  // );
-// });
+
 
 module.exports = router;

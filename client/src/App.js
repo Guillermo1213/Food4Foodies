@@ -61,7 +61,7 @@ class App extends Component {
         {/* greet user if logged in: */}
         {this.state.loggedIn && <p>Join the party, {this.state.username}!</p>}
         {/* Routes to different components */}
-        <Route exact path="/" component={Home} />
+        <Route exact path="/planner" component={Home} />
         <Route
           path="/login"
           render={() => <LoginForm updateUser={this.updateUser} />}

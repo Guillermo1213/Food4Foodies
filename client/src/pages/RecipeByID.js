@@ -173,16 +173,13 @@ export default class RecipeByID extends Component {
                     style={style.images}
                     src={this.state.recipeDetails.image}
                   />
-                  <GridListTileBar
+                  {/* <GridListTileBar
                     // titlePosition="top"
                     actionIcon={
                       <IconButton style={style.icon}>
                         <InfoIcon />
                         {/* <FavoriteIcon /> */}
-                      </IconButton>
-                    }
-                    // actionPosition="left"
-                  />
+                  {/* </IconButton> */}} // actionPosition="left" /> */}
                 </GridListTile>
               </Paper>
             </Grid>

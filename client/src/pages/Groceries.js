@@ -1,7 +1,23 @@
 import React, { Component } from "react";
 import axios from "axios";
 import API from "../utils/API";
+import Jumbotron from "../components/Jumbotron";
+import { Container, Row, Col } from "../components/Grid";
+import { withStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { Grid, Paper } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+
+const style = {
+  root: {
+    width: "100%",
+    backgroundColor: "gray"
+  }
+};
 
 class Groceries extends React.Component {
   state = {
@@ -31,32 +47,23 @@ class Groceries extends React.Component {
     console.log(this.state.groceriesResults);
     return (
       <div>
-        <h1>hi</h1>
-        <div>
-          {this.state.groceriesResults.map(ingred => (
-            <li>
-              {ingred.id}
-              {ingred.name}
-              <Button onClick={() => this.handleSubmitDelete(ingred.id)}>
-                X
-              </Button>
-            </li>
-          ))}
-          {/* {this.state.groceriesName.map(ingredient => (
-            <li>{ingredient.name}</li>
-          ))} */}
-        </div>
+        <Jumbotron />
+        <Container>
+          <Paper className="text-center">
+            {this.state.groceriesResults.map(ingred => (
+              <li>
+                {/* {ingred.id} */}
+                {ingred.name}
+                <Button onClick={() => this.handleSubmitDelete(ingred.id)}>
+                  <DeleteIcon />
+                </Button>
+              </li>
+            ))}
+          </Paper>
+        </Container>
       </div>
     );
   }
-
-  //   getGroceries() {
-  //     console.log("I got foods!");
-  //     axios.get("/pantry/groceries").then(groceries => {
-  //       console.log("hi", groceries);
-  //       this.setState({ groceries: groceries.data });
-  //     });
-  //   }
 }
 
 export default Groceries;

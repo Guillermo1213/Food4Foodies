@@ -15,6 +15,10 @@ export default {
     return axios.post("/api/recipes/id", null, {
       params: { id: query }
     });
+  },
+
+  deleteingred: function(groceries) {
+    return axios.post("/groceries/pantry", { groceriesResult: groceries });
   }
   // ,
 
@@ -25,7 +29,6 @@ export default {
   // fetchPlanner: function(){
   //   return axios.put("/api/planner");
   // }
-
 };
 
 // export default {

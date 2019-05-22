@@ -77,8 +77,17 @@ export default class RecipeByID extends Component {
     //request to server to add groceries
     axios
       .put("/groceries/addMeal", {
-        groceries: this.state.recipeDetails.extendedIngredients.map(
-          recipe => recipe.name),
+        groceries: this.state.recipeDetails.extendedIngredients.map(function(
+          ingred
+        ) {
+          var ingredient = {
+            name: ingred.name,
+            id: ingred.id,
+            amount: ingred.amount,
+            unit: ingred.unit
+          };
+          return ingredient;
+        }),
         day: this.state.day,
         meal: this.state.mealSlot,
         imgUrl: this.state.recipeDetails.image,

@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/navbar";
 import ButtonAppBar from "./components/Navbar/ButtonAppBar";
 import Home from "./components/Home/home";
 import Recipes from "./pages/Recipes";
+import Groceries from "./pages/Groceries";
 import Favorites from "./pages/favorites";
 
 class App extends Component {
@@ -70,6 +71,7 @@ class App extends Component {
         <Route exact path="/recipesearch" component={Recipes} />
         <Route exact path="/recipes/:id" component={RecipeByID} />
         <Route exact path="/favorites" component={Favorites} />
+        <Route exact path="/groceries/pantry" component={Groceries} />
       </div>
     );
   }

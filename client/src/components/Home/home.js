@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import { Meal } from "../PlannerDay"
+import { EmptyMeal, Meal } from "../PlannerDay"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import Divider from "@material-ui/core/Divider"
@@ -50,7 +50,7 @@ class Home extends Component {
         console.log(this.populatweek(this.state.plannerResults));
         return (
             <div>
-                <Grid container spacing={24} style={{ padding: 24, textAlign: 'center' }}>
+                <Grid container spacing={24} style={{ padding: 24, textAlign: 'center', justifyContent: 'center' }}>
                     <Grid item xs={12} sm={6} lg={4} xl={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Monday</Typography>
                         <Divider></Divider>
@@ -65,8 +65,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Monday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}
@@ -85,8 +92,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Tuesday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}
@@ -105,8 +119,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Wednesday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}
@@ -125,8 +146,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Thursday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}
@@ -145,8 +173,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Friday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}
@@ -165,8 +200,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Saturday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}
@@ -185,8 +227,15 @@ class Home extends Component {
                                             title={recipe.recipeTitle}
                                             id={recipe.recipeId}
                                             thumbnail={recipe.imgUrl}
+                                            mealType={recipe.mealType}
                                         />
                                     </Grid>
+                                );
+                            } else if (recipeLength === 2 && recipe.weekDay === "Sunday"){
+                                return (
+                                    <Grid item>
+                                    <EmptyMeal mealType={recipe.mealType}/>
+                                </Grid>
                                 );
                             }
                         })}

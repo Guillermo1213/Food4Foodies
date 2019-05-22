@@ -15,3 +15,8 @@
   border: solid #ccc;
   border-width: 1px 1px 0 1px;
 }
+
+.mealCard > [class*='col-']{
+  padding-left: 5px;
+  padding-right: 5px;
+}

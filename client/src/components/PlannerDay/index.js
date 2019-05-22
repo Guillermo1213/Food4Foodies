@@ -1,3 +1,3 @@
 export * from "./Day";
-export * from "./EmptyScreen";
+export * from "./EmptyMeal";
 export * from "./Meal";

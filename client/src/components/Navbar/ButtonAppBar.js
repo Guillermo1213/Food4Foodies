@@ -38,6 +38,9 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Food4Foodies
           </Typography>
+          <Button color="inherit" component={Link} to="/planner">
+            Home
+          </Button>
           <Button color="inherit" component={Link} to="/recipesearch">
             Recipes
           </Button>

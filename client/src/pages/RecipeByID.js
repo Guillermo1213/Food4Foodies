@@ -82,7 +82,8 @@ export default class RecipeByID extends Component {
         day: this.state.day,
         meal: this.state.mealSlot,
         imgUrl: this.state.recipeDetails.image,
-        recipeTitle: this.state.recipeDetails.title
+        recipeTitle: this.state.recipeDetails.title,
+        recipeId: this.state.recipeDetails.id
       })
       .then(response => {
         console.log(response);

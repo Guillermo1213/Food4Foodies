@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import { Day, Meal} from "../PlannerDay"
+import { Meal } from "../PlannerDay"
+import Grid from "@material-ui/core/Grid"
+import Typography from "@material-ui/core/Typography"
+import Divider from "@material-ui/core/Divider"
 // import { RecipeList, RecipeListItem } from "../components/RecipeList";
 import { Row, Col } from "../Grid";
 // import Jumbotron from "../components/Jumbotron";
@@ -17,7 +20,8 @@ class Home extends Component {
             .get("/planner")
             .then(res => {
                 return this.setState({ plannerResults: res.data[0].planner });
-            });
+            })
+
     };
 
     populatweek(unsortedDays) {
@@ -45,24 +49,150 @@ class Home extends Component {
     render() {
         console.log(this.populatweek(this.state.plannerResults));
         return (
-        <div>
-            <Row>
-                <Col size="xs-12">
-                    <Day>
+            <div>
+                <Grid container spacing={24} style={{ padding: 24, textAlign: 'center' }}>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Monday</Typography>
+                        <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
-                            return (
-                                <Meal
-                                    key={recipe.recipeTitle}
-                                    title={recipe.recipeTitle}
-                                    id={recipe.recipeId}
-                                    thumbnail={recipe.imgUrl}
-                                />
-                            );
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Monday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
                         })}
-                    </Day>
-                </Col>
-            </Row>
-        </div>
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Tuesday</Typography>
+                        <Divider></Divider>
+                        {this.populatweek(this.state.plannerResults).map(recipe => {
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Tuesday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
+                        })}
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Wednesday</Typography>
+                        <Divider></Divider>
+                        {this.populatweek(this.state.plannerResults).map(recipe => {
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Wednesday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
+                        })}
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Thursday</Typography>
+                        <Divider></Divider>
+                        {this.populatweek(this.state.plannerResults).map(recipe => {
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Thursday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
+                        })}
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Friday</Typography>
+                        <Divider></Divider>
+                        {this.populatweek(this.state.plannerResults).map(recipe => {
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Friday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
+                        })}
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Saturday</Typography>
+                        <Divider></Divider>
+                        {this.populatweek(this.state.plannerResults).map(recipe => {
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Saturday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
+                        })}
+                    </Grid>
+                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                        <Typography style={{textAlign: 'center'}} variant="headline">Sunday</Typography>
+                        <Divider></Divider>
+                        {this.populatweek(this.state.plannerResults).map(recipe => {
+
+                            var recipeLength = Object.keys(recipe).length;
+
+                            if (recipeLength === 5 && recipe.weekDay === "Sunday") {
+                                return (
+                                    <Grid item>
+                                        <Meal key={recipe.recipeTitle}
+                                            title={recipe.recipeTitle}
+                                            id={recipe.recipeId}
+                                            thumbnail={recipe.imgUrl}
+                                        />
+                                    </Grid>
+                                );
+                            }
+                        })}
+                    </Grid>
+                </Grid>
+            </div>
         );
     }
 }

@@ -1,19 +1,36 @@
 import React from "react";
-import Thumbnail from "../Thumbnail";
-import { Container, Row, Col } from "../Grid";
+import { Row, Col } from "../Grid";
+import Card from "@material-ui/core/Card"
+import CardActions from "@material-ui/core/CardActions"
+import CardContent from "@material-ui/core/CardContent"
+import CardMedia from "@material-ui/core/CardMedia"
+import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
 
 
-export const Meal = props => (
-    <li className="list-group-item">
-      <Container>
-        <Row>
-          <Col size="xs-4 sm-2">
-            <Thumbnail src={props.thumbnail || "https://placehold.it/300x300"} />
-          </Col>
-          <Col size="xs-8 sm-9">
-            <h3>{props.title}</h3>
-          </Col>
-        </Row>
-      </Container>
-    </li>
-  );
+export const Meal = props => {
+  return (
+    <Card>
+      <Row>
+        <Col size="md-8" style={{paddingBottom: 0}}>
+            <CardMedia style={{ height: 'auto', paddingTop: '56.25%' }}
+              image={props.thumbnail}
+              title={props.title}
+            />
+        </Col>
+        <Col size="md-4">
+          <CardContent>
+            <Typography variant="title" style={{ overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical'}}>
+              {props.title}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" color="primary" href={"/recipes/" + props.id}>
+              Cook
+            </Button>
+          </CardActions>
+        </Col>
+      </Row>
+    </Card>
+  )
+}

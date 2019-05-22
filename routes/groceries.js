@@ -5,13 +5,14 @@ const User = require("../database/models/user");
 router.put("/addMeal", function (req, res) {
   console.log("routes/groceries.js, adding ");
 
-  const { groceries, meal, day, imgUrl, recipeTitle } = req.body;
+  const { groceries, meal, day, imgUrl, recipeTitle, recipeId} = req.body;
 
   const newMeal = {
     weekDay: day,
     mealType: meal,
     imgUrl: imgUrl,
-    recipeTitle: recipeTitle
+    recipeTitle: recipeTitle,
+    recipeId: recipeId,
     }
 
     User.findByIdAndUpdate(

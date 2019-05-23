@@ -48,7 +48,7 @@ class Home extends Component {
         return (
             <div>
                 <Grid container spacing={24} style={{ padding: 24, textAlign: 'center', justifyContent: 'center', height: '90vh', overflow: 'scroll' }}>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Monday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
@@ -75,7 +75,7 @@ class Home extends Component {
                             }
                         })}
                     </Grid>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Tuesday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
@@ -102,7 +102,7 @@ class Home extends Component {
                             }
                         })}
                     </Grid>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Wednesday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
@@ -129,7 +129,7 @@ class Home extends Component {
                             }
                         })}
                     </Grid>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Thursday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
@@ -156,7 +156,7 @@ class Home extends Component {
                             }
                         })}
                     </Grid>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Friday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
@@ -183,7 +183,7 @@ class Home extends Component {
                             }
                         })}
                     </Grid>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Saturday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {
@@ -210,7 +210,7 @@ class Home extends Component {
                             }
                         })}
                     </Grid>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+                    <Grid item xs={12} sm={6} lg={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Sunday</Typography>
                         <Divider></Divider>
                         {this.populatweek(this.state.plannerResults).map(recipe => {

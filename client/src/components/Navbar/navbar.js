@@ -39,20 +39,17 @@ class Navbar extends Component {
                     <div className="col-4" >
                         {loggedIn ? (
                             <section className="navbar-section">
-                                <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
+                                <Link to="/" className="btn btn-link text-secondary" onClick={this.logout}>
                                 <span className="text-secondary">logout</span></Link>
 
                             </section>
                         ) : (
                                 <section className="navbar-section">
                                     <Link to="/" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">home</span>
-                                        </Link>
-                                    <Link to="/login" className="btn btn-link text-secondary">
-                                    <span className="text-secondary">login</span>
+                                    <span className="text-secondary">Login</span>
 				</Link>
                                     <Link to="/signup" className="btn btn-link">
-                                    <span className="text-secondary">sign up</span>
+                                    <span className="text-secondary">Sign Up</span>
 				</Link>
                                 </section>
                             )}

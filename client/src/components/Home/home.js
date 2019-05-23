@@ -4,10 +4,7 @@ import { EmptyMeal, Meal } from "../PlannerDay"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import Divider from "@material-ui/core/Divider"
-// import { RecipeList, RecipeListItem } from "../components/RecipeList";
 import { Row, Col } from "../Grid";
-// import Jumbotron from "../components/Jumbotron";
-// require("../components/styles.css");
 
 class Home extends Component {
 
@@ -50,7 +47,7 @@ class Home extends Component {
         console.log(this.populatweek(this.state.plannerResults));
         return (
             <div>
-                <Grid container spacing={24} style={{ padding: 24, textAlign: 'center', justifyContent: 'center' }}>
+                <Grid container spacing={24} style={{ padding: 24, textAlign: 'center', justifyContent: 'center', height: '90vh', overflow: 'scroll' }}>
                     <Grid item xs={12} sm={6} lg={4} xl={3}>
                         <Typography style={{textAlign: 'center'}} variant="headline">Monday</Typography>
                         <Divider></Divider>

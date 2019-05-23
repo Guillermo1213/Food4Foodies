@@ -53,6 +53,9 @@ app.use('/groceries', groceries)
 app.use('/favorites', favorites)
 app.use('/planner', planner)
 
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -23,7 +23,7 @@ If you decide to add this meal to your week, you can do so with buttons below. Y
 ![alt text](https://github.com/Guillermo1213/Food4Foodies/blob/master/client/public/images/Favorites.png?raw=true)
 
 When adding meals, you can see your grocery list being populated in the groceries tab of the navbar:
-![alt text](https://github.com/Guillermo12/Food4Foodies/blob/master/client/public/images/Grocery_List.png?raw=true)
+![alt text](https://github.com/Guillermo1213/Food4Foodies/blob/master/client/public/images/Grocery_List.png?raw=true)
 
 ## Contribution & Technologies
 With the help of [Sonia Davila]( https://github.com/sd902h), and technologies such as Node, React, and Material-ui, we were able to develop the early stages of this useful application. Currently just a learning project, but with time possible updates. If you have any questions, comments, or concerns for me, [Guillermo Garcia Jr.](https://guillermo1213.github.io/Bootstrap-Portfolio/), you can find my portfolio by clicking on my name. Thanks for taking the time to readme! :kissing_heart:
